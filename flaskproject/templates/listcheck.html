@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>응답 확인</title>
+    {% include 'head.html' %}
+</head>
+
+<body>
+    <div class="showForm">
+        <div class="datediv">응답 날짜 : <span class="answer">{{datas[1]}}</span></div>
+        <br/>
+            <input type="hidden" name="answerdate" value="{{today}}">
+            <div class="question">
+                <div class="title">이름</div>
+                <div class="answer">{{datas[2]}}</div>
+            </div><br/>
+            <div class="question">
+                <div class="title">성별</div>
+                <div class="answer">{{'남자' if datas[3]==1 else '여자' if datas[3]==2 else '무응답'}}</div>
+            </div><br/>
+            <div class="question">
+                <div class="title">나이</div>
+                <div class="answer">{{datas[4]}} 세</div>
+            </div><br/>
+            <div class="question">
+                <div class="title">Q1-1. 평가 (7점 척도)</div>
+                <div class="answer">{{datas[5]}} 점</div>
+            </div><br/>
+            <div class="question">
+                <div class="title">Q1-2. 세부 평가</div>
+                <div class="answer">{{datas[6]}}</div>
+            </div>
+            <br/>
+    <div><a href="{{url_for('home')}}"><button class='btn btn-large btn-primary'>홈으로 돌아가기</button></a></div><br/>
+    <div><a href="{{url_for('datacheck')}}"><button class='btn btn-large btn-info'  width="100%">리스트로 돌아가기</button></a></div>
+    </div>
+</body>
+
+</html>

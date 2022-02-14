@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data 확인</title>
+    {% include 'head.html' %}
+</head>
+
+<body>
+    <div class="checkpage">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Index</th>
+                    <th scope="col">입력 날짜</th>
+                    <th scope="col">이름</th>
+                    <th scope="col">성별</th>
+                    <th scope="col">나이</th>
+                </tr>
+            </thead>
+            {% for d in datas %}
+                <tr>
+                    <th scope="row"><a href="{{url_for('listcheck', index = d[0])}}">{{d[0]}}</a></td>
+                    <td>{{d[1]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{'남자' if d[3]==1 else '여자' if d[3]==2 else '무응답'}}</td>
+                    <td>{{d[4]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>

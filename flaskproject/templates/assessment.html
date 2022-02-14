@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>평가 항목</title>
+    {% include 'head.html' %}
+</head>
+
+<body>
+    <div class="inputForm">
+        <div class="datediv">{{today}}</div>
+        <br/>
+        <form action="/result" method="POST">
+            <input type="hidden" name="date" value="{{today}}">
+            <div class="question">
+                <div class="title">이름</div>
+                <div class="answer">
+                    <input type="text" name="pname" class="form-control" required />
+                </div>
+            </div><br/>
+            <div class="question">
+                <div class="title">성별</div>
+                <div class="answer">
+                    <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group" style="width: 80%;">
+                        <input type="radio" class="btn-check" name="gender" id="gender_1" autocomplete="off" value="1" required>
+                        <label class="btn btn-outline-primary" for="gender_1">남</label>
+                        <input type="radio" class="btn-check" name="gender" id="gender_2" autocomplete="off" value="2">
+                        <label class="btn btn-outline-primary" for="gender_2">여</label>
+                    </div>
+                </div>
+            </div><br/>
+            <div class="question">
+                <div class="title">나이</div>
+                <div class="answer">
+                    <input type="number" class="form-control" name="age" onkeyup="rangechk(this.value,'.ageerr')" min=0 max=100 required/>
+                    <span class="errmsg ageerr">연령 확인 필요<span>
+                </div>
+            </div><br/>
+            <div class="question">
+                <div class="title">Q1-1. 평가 (7점 척도)</div>
+                <div class="answer">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        {% for i in range(1,8) %}
+                            <input type="radio" class="btn-check" name="Q1_1" id="Q1_1c{{i}}" autocomplete="off" value="{{i}}" required>
+                            <label class="btn btn-outline-primary" for="Q1_1c{{i}}">({{i}})</label>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div><br/>
+            <div class="question">
+                <div class="title">Q1-2. 세부 평가</div>
+                <div class="answer">
+                    <textarea name="Q1_2" cols="45" rows="4" class="form-control" required></textarea>
+                </div>
+            </div>
+            <br/>
+            <div><input type="submit" value="제출" class="btn btn-large btn-primary"/></div>
+        </form>
+    </div>
+</body>
+
+</html>

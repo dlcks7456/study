@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HOME</title>
+    {% include 'head.html' %}
+    <link href='https://fonts.googleapis.com/css?family=Shizuru' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="inputForm">
+        <h1 class="mb-3">Sunny HR</h1>
+        <div style="background-image: url({{url_for('static',filename='img/sunny.jpg')}});" class="circle-img">
+        </div>
+        <div>써니의 면접원 평가</div>
+        <table style="margin: 0 auto;">
+            <tr>
+                <td><a href="/assessment" class="btn btn-primary">평가 하기</a></td>
+                <td><a href="/datacheck" class="btn btn-info">Data 확인</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
